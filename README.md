@@ -1,4 +1,5 @@
 # stripe-elixir
+
 An Elixir SDK for Stripe
 
 ## Installation
@@ -15,6 +16,8 @@ end
 ```
 
 ## TODO List
-- [ ] Import unit tests from stripe-ruby
-- [ ] Add mix deps for Poison, et al
-- [ ] Set up base modules, delegators, implementation
+
+* [x] Import unit tests from stripe-ruby
+* [x] Add mix deps for Poison (JSON parser)
+* [ ] Migrate unit tests from stripe-ruby into Elixirisms
+* [ ] Set up base modules, delegators, implementation
