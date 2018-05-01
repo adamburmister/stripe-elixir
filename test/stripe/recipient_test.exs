@@ -12,46 +12,52 @@ defmodule StripeTest.RecipientTest do
   use ExUnit.Case
 
   test "should be listable" do
-    recipients = Stripe.Recipient.list()
-    assert_requested(:get, "#{Stripe.api_base()}/v1/recipients")
-    assert recipients.data.is_a?(Array)
-    assert recipients.data[0].is_a?(Stripe.Recipient)
+    # recipients = Stripe.Recipient.list()
+    # assert_requested(:get, "#{Stripe.api_base()}/v1/recipients")
+    # assert recipients.data.is_a?(Array)
+    # assert recipients.data[0].is_a?(Stripe.Recipient)
+    needs_refactoring_into_elixir()
   end
 
   test "should be retrievable" do
-    recipient = Stripe.Recipient.retrieve("rp_123")
-    assert_requested(:get, "#{Stripe.api_base()}/v1/recipients/rp_123")
-    assert recipient.is_a?(Stripe.Recipient)
+    # recipient = Stripe.Recipient.retrieve("rp_123")
+    # assert_requested(:get, "#{Stripe.api_base()}/v1/recipients/rp_123")
+    # assert recipient.is_a?(Stripe.Recipient)
+    needs_refactoring_into_elixir()
   end
 
   test "should be creatable" do
-    recipient =
-      Stripe.Recipient.create(
-        name: "Noah Jackson",
-        type: "individual"
-      )
+    # recipient =
+    #   Stripe.Recipient.create(
+    #     name: "Noah Jackson",
+    #     type: "individual"
+    #   )
 
-    assert_requested(:post, "#{Stripe.api_base()}/v1/recipients")
-    assert recipient.is_a?(Stripe.Recipient)
+    # assert_requested(:post, "#{Stripe.api_base()}/v1/recipients")
+    # assert recipient.is_a?(Stripe.Recipient)
+    needs_refactoring_into_elixir()
   end
 
   test "should be saveable" do
-    recipient = Stripe.Recipient.retrieve("rp_123")
-    recipient.metadata["key"] = "value"
-    recipient.save
-    assert_requested(:post, "#{Stripe.api_base()}/v1/recipients/#{recipient.id}")
+    # recipient = Stripe.Recipient.retrieve("rp_123")
+    # recipient.metadata["key"] = "value"
+    # recipient.save
+    # assert_requested(:post, "#{Stripe.api_base()}/v1/recipients/#{recipient.id}")
+    needs_refactoring_into_elixir()
   end
 
   test "should be updateable" do
-    recipient = Stripe.Recipient.update("rp_123", metadata: %{foo: "bar"})
-    assert_requested(:post, "#{Stripe.api_base()}/v1/recipients/rp_123")
-    assert recipient.is_a?(Stripe.Recipient)
+    # recipient = Stripe.Recipient.update("rp_123", metadata: %{foo: "bar"})
+    # assert_requested(:post, "#{Stripe.api_base()}/v1/recipients/rp_123")
+    # assert recipient.is_a?(Stripe.Recipient)
+    needs_refactoring_into_elixir()
   end
 
   test "should be deletable" do
-    recipient = Stripe.Recipient.retrieve("rp_123")
-    recipient = recipient.delete
-    assert_requested(:delete, "#{Stripe.api_base()}/v1/recipients/#{recipient.id}")
-    assert recipient.is_a?(Stripe.Recipient)
+    # recipient = Stripe.Recipient.retrieve("rp_123")
+    # recipient = recipient.delete
+    # assert_requested(:delete, "#{Stripe.api_base()}/v1/recipients/#{recipient.id}")
+    # assert recipient.is_a?(Stripe.Recipient)
+    needs_refactoring_into_elixir()
   end
 end

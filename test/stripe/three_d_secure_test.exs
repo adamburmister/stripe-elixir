@@ -12,20 +12,22 @@ defmodule StripeTest.ThreeDSecureTest do
   use ExUnit.Case
 
   test "should be retrievable" do
-    secure = Stripe.ThreeDSecure.retrieve("tdsrc_123")
-    assert_requested(:get, "#{Stripe.api_base()}/v1/3d_secure/tdsrc_123")
-    assert secure.is_a?(Stripe.ThreeDSecure)
+    # secure = Stripe.ThreeDSecure.retrieve("tdsrc_123")
+    # assert_requested(:get, "#{Stripe.api_base()}/v1/3d_secure/tdsrc_123")
+    # assert secure.is_a?(Stripe.ThreeDSecure)
+    needs_refactoring_into_elixir()
   end
 
   test "should be creatable" do
-    _ =
-      Stripe.ThreeDSecure.create(
-        card: "tok_123",
-        amount: 1500,
-        currency: "usd",
-        return_url: "https://example.org/3d-secure-result"
-      )
+    # _ =
+    #   Stripe.ThreeDSecure.create(
+    #     card: "tok_123",
+    #     amount: 1500,
+    #     currency: "usd",
+    #     return_url: "https://example.org/3d-secure-result"
+    #   )
 
-    assert_requested(:post, "#{Stripe.api_base()}/v1/3d_secure")
+    # assert_requested(:post, "#{Stripe.api_base()}/v1/3d_secure")
+    needs_refactoring_into_elixir()
   end
 end

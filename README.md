@@ -19,5 +19,6 @@ end
 
 * [x] Import unit tests from stripe-ruby
 * [x] Add mix deps for Poison (JSON parser)
+* [ ] Remove nested `decide` blocks from unit tests (see https://hexdocs.pm/ex_unit/ExUnit.Case.html)
 * [ ] Migrate unit tests from stripe-ruby into Elixirisms
 * [ ] Set up base modules, delegators, implementation

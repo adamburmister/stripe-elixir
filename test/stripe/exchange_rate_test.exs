@@ -12,15 +12,17 @@ defmodule StripeTest.ExchangeRateTest do
   use ExUnit.Case
 
   test "should be listable" do
-    list_rates = Stripe.ExchangeRate.list()
-    assert_requested(:get, "#{Stripe.api_base()}/v1/exchange_rates")
-    assert list_rates.data.is_a?(Array)
-    assert list_rates.data.first.is_a?(Stripe.ExchangeRate)
+    # list_rates = Stripe.ExchangeRate.list()
+    # assert_requested(:get, "#{Stripe.api_base()}/v1/exchange_rates")
+    # assert list_rates.data.is_a?(Array)
+    # assert list_rates.data.first.is_a?(Stripe.ExchangeRate)
+    needs_refactoring_into_elixir()
   end
 
   test "should be retrievable" do
-    rates = Stripe.ExchangeRate.retrieve("usd")
-    assert_requested(:get, "#{Stripe.api_base()}/v1/exchange_rates/usd")
-    assert rates.is_a?(Stripe.ExchangeRate)
+    # rates = Stripe.ExchangeRate.retrieve("usd")
+    # assert_requested(:get, "#{Stripe.api_base()}/v1/exchange_rates/usd")
+    # assert rates.is_a?(Stripe.ExchangeRate)
+    needs_refactoring_into_elixir()
   end
 end

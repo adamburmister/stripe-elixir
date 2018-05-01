@@ -12,47 +12,52 @@ defmodule StripeTest.SKUTest do
   use ExUnit.Case
 
   test "should be listable" do
-    skus = Stripe.SKU.list()
-    assert_requested(:get, "#{Stripe.api_base()}/v1/skus")
-    assert skus.data.is_a?(Array)
-    assert skus.data[0].is_a?(Stripe.SKU)
+    # skus = Stripe.SKU.list()
+    # assert_requested(:get, "#{Stripe.api_base()}/v1/skus")
+    # assert skus.data.is_a?(Array)
+    # assert skus.data[0].is_a?(Stripe.SKU)
+    needs_refactoring_into_elixir()
   end
 
   test "should be retrievable" do
-    sku = Stripe.SKU.retrieve("sku_123")
-    assert_requested(:get, "#{Stripe.api_base()}/v1/skus/sku_123")
-    assert sku.is_a?(Stripe.SKU)
+    # sku = Stripe.SKU.retrieve("sku_123")
+    # assert_requested(:get, "#{Stripe.api_base()}/v1/skus/sku_123")
+    # assert sku.is_a?(Stripe.SKU)
+    needs_refactoring_into_elixir()
   end
 
   test "should be creatable" do
-    _ =
-      Stripe.SKU.create(
-        currency: "USD",
-        inventory: %{type: "finite", quantity: 500},
-        price: 100,
-        product: "prod_123"
-      )
-
-    assert_requested(:post, "#{Stripe.api_base()}/v1/skus")
+    # _ =
+    #   Stripe.SKU.create(
+    #     currency: "USD",
+    #     inventory: %{type: "finite", quantity: 500},
+    #     price: 100,
+    #     product: "prod_123"
+    #   )
+    # assert_requested(:post, "#{Stripe.api_base()}/v1/skus")
+    needs_refactoring_into_elixir()
   end
 
   test "should be saveable" do
-    sku = Stripe.SKU.retrieve("sku_123")
-    sku.metadata["key"] = "value"
-    sku.save
-    assert_requested(:post, "#{Stripe.api_base()}/v1/skus/#{sku.id}")
+    # sku = Stripe.SKU.retrieve("sku_123")
+    # sku.metadata["key"] = "value"
+    # sku.save
+    # assert_requested(:post, "#{Stripe.api_base()}/v1/skus/#{sku.id}")
+    needs_refactoring_into_elixir()
   end
 
   test "should be updateable" do
-    sku = Stripe.SKU.update("sku_123", metadata: %{foo: "bar"})
-    assert_requested(:post, "#{Stripe.api_base()}/v1/skus/sku_123")
-    assert sku.is_a?(Stripe.SKU)
+    # sku = Stripe.SKU.update("sku_123", metadata: %{foo: "bar"})
+    # assert_requested(:post, "#{Stripe.api_base()}/v1/skus/sku_123")
+    # assert sku.is_a?(Stripe.SKU)
+    needs_refactoring_into_elixir()
   end
 
   test "should be deletable" do
-    sku = Stripe.SKU.retrieve("sku_123")
-    sku = sku.delete
-    assert_requested(:delete, "#{Stripe.api_base()}/v1/skus/#{sku.id}")
-    assert sku.is_a?(Stripe.SKU)
+    # sku = Stripe.SKU.retrieve("sku_123")
+    # sku = sku.delete
+    # assert_requested(:delete, "#{Stripe.api_base()}/v1/skus/#{sku.id}")
+    # assert sku.is_a?(Stripe.SKU)
+    needs_refactoring_into_elixir()
   end
 end

@@ -12,26 +12,26 @@ defmodule StripeTest.UsageRecordTest do
   use ExUnit.Case
 
   test "should be creatable" do
-    usage_record = Stripe ::
-      UsageRecord.create(
-        quantity: 5000,
-        subscription_item: "si_abc",
-        timestamp: Time.now().to_i,
-        action: "increment"
-      )
-
-    assert_requested(:post, "#{Stripe.api_base()}/v1/subscription_items/si_abc/usage_records")
-    assert usage_record.is_a?(Stripe.UsageRecord)
+    # usage_record = Stripe.UsageRecord.create(
+    #     quantity: 5000,
+    #     subscription_item: "si_abc",
+    #     timestamp: Time.now().to_i,
+    #     action: "increment"
+    #   )
+    #
+    # assert_requested(:post, "#{Stripe.api_base()}/v1/subscription_items/si_abc/usage_records")
+    # assert usage_record.is_a?(Stripe.UsageRecord)
+    needs_refactoring_into_elixir()
   end
 
   test "raise when subscription_item is missing" do
-    assert_raise ArgumentError do
-      Stripe ::
-        UsageRecord.create(
-          quantity: 5000,
-          timestamp: Time.now().to_i,
-          action: "increment"
-        )
-    end
+    # assert_raise ArgumentError do
+    #   Stripe.UsageRecord.create(
+    #       quantity: 5000,
+    #       timestamp: Time.now().to_i,
+    #       action: "increment"
+    #     )
+    # end
+    needs_refactoring_into_elixir()
   end
 end
