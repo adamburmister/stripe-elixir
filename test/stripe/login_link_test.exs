@@ -8,6 +8,7 @@
 #
 
 defmodule StripeTest.LoginLinkTest do
+  import StripeTest.Helpers
   use ExUnit.Case
 
   setup do

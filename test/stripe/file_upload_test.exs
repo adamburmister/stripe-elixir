@@ -8,6 +8,7 @@
 #
 
 defmodule StripeTest.FileUploadTest do
+  import StripeTest.Helpers
   use ExUnit.Case
 
   # Note that these tests are written different from others because we

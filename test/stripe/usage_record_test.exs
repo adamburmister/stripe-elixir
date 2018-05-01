@@ -8,6 +8,7 @@
 #
 
 defmodule StripeTest.UsageRecordTest do
+  import StripeTest.Helpers
   use ExUnit.Case
 
   test "should be creatable" do

@@ -8,6 +8,7 @@
 #
 
 defmodule StripeTest.PayoutTest do
+  import StripeTest.Helpers
   use ExUnit.Case
 
   test "should be listable" do

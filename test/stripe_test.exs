@@ -1,8 +1,8 @@
 defmodule StripeTest do
+  import StripeTest.Helpers
   use ExUnit.Case
 
   test "warn that #refresh_from is deprecated" do
-    # COPY-PASTA RUBY ----
     # old_stderr = $stderr
     # $stderr = StringIO.new
     # begin
@@ -13,11 +13,10 @@ defmodule StripeTest do
     # ensure
     #   $stderr = old_stderr
     # end
-    assert "ruby test" == "not converted to elixir"
+    needs_refactoring_into_elixir()
   end
 
   test "allow app_info to be configured" do
-    # COPY-PASTA RUBY ----
     # begin
     #   old = Stripe.app_info
     #   Stripe.set_app_info(
@@ -33,11 +32,10 @@ defmodule StripeTest do
     # ensure
     #   Stripe.app_info = old
     # end
-    assert "ruby test" == "not converted to elixir"
+    needs_refactoring_into_elixir()
   end
 
   test "allow ca_bundle_path to be configured" do
-    # COPY-PASTA RUBY ----
     # begin
     #   old = Stripe.ca_bundle_path
     #   Stripe.ca_bundle_path = "path/to/ca/bundle"
@@ -45,11 +43,10 @@ defmodule StripeTest do
     # ensure
     #   Stripe.ca_bundle_path = old
     # end
-    assert "ruby test" == "not converted to elixir"
+    needs_refactoring_into_elixir()
   end
 
   test "allow max_network_retries to be configured" do
-    # COPY-PASTA RUBY ----
     # begin
     #   old = Stripe.max_network_retries
     #   Stripe.max_network_retries = 99
@@ -57,13 +54,12 @@ defmodule StripeTest do
     # ensure
     #   Stripe.max_network_retries = old
     # end
-    assert "ruby test" == "not converted to elixir"
+    needs_refactoring_into_elixir()
   end
 
   test "have default open and read timeouts" do
-    # COPY-PASTA RUBY ----
     # assert_equal Stripe.open_timeout, 30
     # assert_equal Stripe.read_timeout, 80
-    assert "ruby test" == "not converted to elixir"
+    needs_refactoring_into_elixir()
   end
 end

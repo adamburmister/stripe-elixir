@@ -8,17 +8,20 @@
 #
 
 defmodule StripeTest.AccountLoginLinksOperationsTest do
+  import StripeTest.Helpers
   use ExUnit.Case
 
   setup do
-    @account_id = "acct_123"
+    # @account_id = "acct_123"
+    needs_refactoring_into_elixir()
   end
 
   describe "#create_login_link" do
     test "create a login link" do
-      login_link = Stripe.Account.create_login_link(@account_id)
-      assert_requested(:post, "#{Stripe.api_base()}/v1/accounts/#{@account_id}/login_links")
-      assert login_link.is_a?(Stripe.LoginLink)
+      # login_link = Stripe.Account.create_login_link(@account_id)
+      # assert_requested(:post, "#{Stripe.api_base()}/v1/accounts/#{@account_id}/login_links")
+      # assert login_link.is_a?(Stripe.LoginLink)
+      needs_refactoring_into_elixir()
     end
   end
 end

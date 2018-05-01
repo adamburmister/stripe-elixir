@@ -8,6 +8,7 @@
 #
 
 defmodule StripeTest.SystemProfilerTest do
+  import StripeTest.Helpers
   use ExUnit.Case
 
   describe "#uname" do

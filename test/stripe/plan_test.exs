@@ -8,7 +8,9 @@
 #
 
 defmodule StripeTest.PlanTest do
+  import StripeTest.Helpers
   use ExUnit.Case
+
   test "should be listable" do
     plans = Stripe.Plan.list
     assert_requested :get, "#{Stripe.api_base}/v1/plans"

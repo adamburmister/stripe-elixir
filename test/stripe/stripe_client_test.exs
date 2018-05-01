@@ -8,6 +8,7 @@
 #
 
 defmodule StripeTest.StripeClientTest do
+  import StripeTest.Helpers
   use ExUnit.Case
 
   describe ".active_client" do

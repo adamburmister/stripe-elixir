@@ -8,6 +8,7 @@
 #
 
 defmodule StripeTest.SourceTest do
+  import StripeTest.Helpers
   use ExUnit.Case
 
   test "should be retrievable" do

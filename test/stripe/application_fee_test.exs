@@ -8,12 +8,14 @@
 #
 
 defmodule StripeTest.ApplicationFeeTest do
+  import StripeTest.Helpers
   use ExUnit.Case
 
   test "should be listable" do
-    fees = Stripe.ApplicationFee.list()
-    assert_requested(:get, "#{Stripe.api_base()}/v1/application_fees")
-    assert fees.data.is_a?(Array)
-    assert fees.data[0].is_a?(Stripe.ApplicationFee)
+    # fees = Stripe.ApplicationFee.list()
+    # assert_requested(:get, "#{Stripe.api_base()}/v1/application_fees")
+    # assert fees.data.is_a?(Array)
+    # assert fees.data[0].is_a?(Stripe.ApplicationFee)
+    needs_refactoring_into_elixir()
   end
 end

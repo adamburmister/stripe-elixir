@@ -8,6 +8,7 @@
 #
 
 defmodule StripeTest.StripeObjectTest do
+  import StripeTest.Helpers
   use ExUnit.Case
 
   test "implement #==" do

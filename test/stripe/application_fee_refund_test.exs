@@ -8,36 +8,41 @@
 #
 
 defmodule StripeTest.ApplicationFeeRefundTest do
+  import StripeTest.Helpers
   use ExUnit.Case
 
   setup do
-    @fee = Stripe.ApplicationFee.retrieve("fee_123")
+    # @fee = Stripe.ApplicationFee.retrieve("fee_123")
+    needs_refactoring_into_elixir()
   end
 
   test "should be listable" do
-    refunds = @fee.refunds
-
-    # notably this *doesn't* make an API call
-    assert_not_requested(:get, "#{Stripe.api_base()}/v1/application_fees/#{@fee.id}/refunds")
-
-    assert refunds.data.is_a?(Array)
-    assert refunds.first.is_a?(Stripe.ApplicationFeeRefund)
+    # refunds = @fee.refunds
+    #
+    # # notably this *doesn't* make an API call
+    # assert_not_requested(:get, "#{Stripe.api_base()}/v1/application_fees/#{@fee.id}/refunds")
+    #
+    # assert refunds.data.is_a?(Array)
+    # assert refunds.first.is_a?(Stripe.ApplicationFeeRefund)
+    needs_refactoring_into_elixir()
   end
 
   test "should be creatable" do
-    refund = @fee.refunds.create
-    assert_requested(:post, "#{Stripe.api_base()}/v1/application_fees/#{@fee.id}/refunds")
-    assert refund.is_a?(Stripe.ApplicationFeeRefund)
+    # refund = @fee.refunds.create
+    # assert_requested(:post, "#{Stripe.api_base()}/v1/application_fees/#{@fee.id}/refunds")
+    # assert refund.is_a?(Stripe.ApplicationFeeRefund)
+    needs_refactoring_into_elixir()
   end
 
   test "should be saveable" do
-    refund = @fee.refunds.first
-    refund.metadata["key"] = "value"
-    refund.save
-
-    assert_requested(
-      :post,
-      "#{Stripe.api_base()}/v1/application_fees/#{@fee.id}/refunds/#{refund.id}"
-    )
+    # refund = @fee.refunds.first
+    # refund.metadata["key"] = "value"
+    # refund.save
+    #
+    # assert_requested(
+    #   :post,
+    #   "#{Stripe.api_base()}/v1/application_fees/#{@fee.id}/refunds/#{refund.id}"
+    # )
+    needs_refactoring_into_elixir()
   end
 end

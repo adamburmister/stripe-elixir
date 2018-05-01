@@ -8,191 +8,221 @@
 #
 
 defmodule StripeTest.AccountTest do
+  import StripeTest.Helpers
   use ExUnit.Case
 
   test "should be listable" do
-    accounts = Stripe.Account.list
-    assert_requested :get, "#{Stripe.api_base}/v1/accounts"
-    assert accounts.data.is_a?(Array)
-    assert accounts.data[0].is_a?(Stripe.Account)
+    # TODO: Migrate Ruby to Elixir
+    # accounts = Stripe.Account.list
+    # assert_requested :get, "#{Stripe.api_base}/v1/accounts"
+    # assert accounts.data.is_a?(Array)
+    # assert accounts.data[0].is_a?(Stripe.Account)
+    needs_refactoring_into_elixir()
   end
 
   test "should be retrievable using singular endpoint" do
-    account = Stripe.Account.retrieve
-    assert_requested :get, "#{Stripe.api_base}/v1/account"
-    assert account.is_a?(Stripe.Account)
+    # TODO: Migrate Ruby to Elixir
+    # account = Stripe.Account.retrieve
+    # assert_requested :get, "#{Stripe.api_base}/v1/account"
+    # assert account.is_a?(Stripe.Account)
+    needs_refactoring_into_elixir()
   end
 
   test "should be retrievable using plural endpoint" do
-    account = Stripe.Account.retrieve("acct_123")
-    assert_requested :get, "#{Stripe.api_base}/v1/accounts/acct_123"
-    assert account.is_a?(Stripe.Account)
+    # TODO: Migrate Ruby to Elixir
+    # account = Stripe.Account.retrieve("acct_123")
+    # assert_requested :get, "#{Stripe.api_base}/v1/accounts/acct_123"
+    # assert account.is_a?(Stripe.Account)
+    needs_refactoring_into_elixir()
   end
 
   test "should be rejectable" do
-    account_data = %{ id: "acct_foo" }
-    stub_request(:get, "#{Stripe.api_base}/v1/accounts/acct_foo")
-      .to_return(body: JSON.generate(account_data))
+    # TODO: Migrate Ruby to Elixir
+    # account_data = %{ id: "acct_foo" }
+    # stub_request(:get, "#{Stripe.api_base}/v1/accounts/acct_foo")
+    #   .to_return(body: JSON.generate(account_data))
 
-    stub_request(:post, "#{Stripe.api_base}/v1/accounts/acct_foo/reject")
-      .to_return(body: JSON.generate(account_data))
+    # stub_request(:post, "#{Stripe.api_base}/v1/accounts/acct_foo/reject")
+    #   .to_return(body: JSON.generate(account_data))
 
-    account = Stripe.Account.retrieve("acct_foo")
-    account.reject(reason: "fraud")
+    # account = Stripe.Account.retrieve("acct_foo")
+    # account.reject(reason: "fraud")
+    needs_refactoring_into_elixir()
   end
 
   test "should be creatable" do
-    account = Stripe.Account.create(metadata: %{}, type: "standard")
-    assert_requested :post, "#{Stripe.api_base}/v1/accounts"
-    assert account.is_a?(Stripe.Account)
+    # TODO: Migrate Ruby to Elixir
+    # account = Stripe.Account.create(metadata: %{}, type: "standard")
+    # assert_requested :post, "#{Stripe.api_base}/v1/accounts"
+    # assert account.is_a?(Stripe.Account)
+    needs_refactoring_into_elixir()
   end
 
   test "should be saveable" do
-    account = Stripe.Account.retrieve("acct_123")
-    account.metadata["key"] = "value"
-    account.save
-    assert_requested :post, "#{Stripe.api_base}/v1/accounts/#{account.id}"
+    # TODO: Migrate Ruby to Elixir
+    # account = Stripe.Account.retrieve("acct_123")
+    # account.metadata["key"] = "value"
+    # account.save
+    # assert_requested :post, "#{Stripe.api_base}/v1/accounts/#{account.id}"
+    needs_refactoring_into_elixir()
   end
 
   test "should be updateable" do
-    account = Stripe.Account.update("acct_123", metadata: %{ foo: "bar" })
-    assert_requested :post, "#{Stripe.api_base}/v1/accounts/acct_123"
-    assert account.is_a?(Stripe.Account)
+    # TODO: Migrate Ruby to Elixir
+    # account = Stripe.Account.update("acct_123", metadata: %{ foo: "bar" })
+    # assert_requested :post, "#{Stripe.api_base}/v1/accounts/acct_123"
+    # assert account.is_a?(Stripe.Account)
+    needs_refactoring_into_elixir()
   end
 
   test "should be deletable" do
-    account = Stripe.Account.retrieve("acct_123")
-    account = account.delete
-    assert_requested :delete, "#{Stripe.api_base}/v1/accounts/#{account.id}"
-    assert account.is_a?(Stripe.Account)
+    # TODO: Migrate Ruby to Elixir
+    # account = Stripe.Account.retrieve("acct_123")
+    # account = account.delete
+    # assert_requested :delete, "#{Stripe.api_base}/v1/accounts/#{account.id}"
+    # assert account.is_a?(Stripe.Account)
+    needs_refactoring_into_elixir()
   end
 
   describe "#bank_account=" do
     test "warn that #bank_account= is deprecated" do
-      old_stderr = $stderr
-      $stderr = StringIO.new
-      begin
-        account = Stripe.Account.retrieve("acct_123")
-        account.bank_account = "tok_123"
-        message = "NOTE: Stripe.Account#bank_account= is " \
-                  "deprecated; use #external_account= instead"
-        assert_match Regexp.new(message), $stderr.string
-      ensure
-        $stderr = old_stderr
-      end
+      # TODO: Migrate Ruby to Elixir
+      # old_stderr = $stderr
+      # $stderr = StringIO.new
+      # begin
+      #   account = Stripe.Account.retrieve("acct_123")
+      #   account.bank_account = "tok_123"
+      #   message = "NOTE: Stripe.Account#bank_account= is " \
+      #             "deprecated; use #external_account= instead"
+      #   assert_match Regexp.new(message), $stderr.string
+      # ensure
+      #   $stderr = old_stderr
+      # end
+      needs_refactoring_into_elixir()
     end
   end
 
   describe "#deauthorize" do
     test "deauthorize an account" do
-      account = Stripe.Account.retrieve("acct_123")
+      # TODO: Migrate Ruby to Elixir
+      # account = Stripe.Account.retrieve("acct_123")
 
-      # Unfortunately, the OpenAPI spec doesn't yet cover anything under the
-      # Connect endpoints, so for just stub this out with Webmock.
-      stub_request(:post, "#{Stripe.connect_base}/oauth/deauthorize")
-        .with(body: %{ "client_id" => "ca_1234", "stripe_user_id" => account.id })
-        .to_return(body: JSON.generate("stripe_user_id" => account.id))
-      account.deauthorize("ca_1234", "sk_test_1234")
+      # # Unfortunately, the OpenAPI spec doesn't yet cover anything under the
+      # # Connect endpoints, so for just stub this out with Webmock.
+      # stub_request(:post, "#{Stripe.connect_base}/oauth/deauthorize")
+      #   .with(body: %{ "client_id" => "ca_1234", "stripe_user_id" => account.id })
+      #   .to_return(body: JSON.generate("stripe_user_id" => account.id))
+      # account.deauthorize("ca_1234", "sk_test_1234")
+      needs_refactoring_into_elixir()
     end
   end
 
   describe "#legal_entity=" do
     test "disallow direct overrides" do
-      account = Stripe.Account.retrieve("acct_123")
+      # TODO: Migrate Ruby to Elixir
+      # account = Stripe.Account.retrieve("acct_123")
 
-      assert_raise NoMethodError do
-        account.legal_entity = %{ first_name: "Blah" }
-      end
+      # assert_raise NoMethodError do
+      #   account.legal_entity = %{ first_name: "Blah" }
+      # end
 
-      account.legal_entity.first_name = "Blah"
+      # account.legal_entity.first_name = "Blah"
+      needs_refactoring_into_elixir()
     end
   end
 
   describe "#serialize_params" do
     test "serialize an a new additional_owners" do
-      obj = Stripe.Util.convert_to_stripe_object({
-        object: "account",
-        legal_entity: Stripe.StripeObject.construct_from({
-        }),
-      }, %{})
-      obj.legal_entity.additional_owners = [
-        %{ first_name: "Joe" },
-        %{ first_name: "Jane" },
-      ]
+      # TODO: Migrate Ruby to Elixir
+      # obj = Stripe.Util.convert_to_stripe_object({
+      #   object: "account",
+      #   legal_entity: Stripe.StripeObject.construct_from({
+      #   }),
+      # }, %{})
+      # obj.legal_entity.additional_owners = [
+      #   %{ first_name: "Joe" },
+      #   %{ first_name: "Jane" },
+      # ]
 
-      expected = %{
-        legal_entity: %{
-          additional_owners: %{
-            "0" => %{ first_name: "Joe" },
-            "1" => %{ first_name: "Jane" },
-          },
-        },
-      }
-      assert_equal(expected, obj.serialize_params)
+      # expected = %{
+      #   legal_entity: %{
+      #     additional_owners: %{
+      #       "0" => %{ first_name: "Joe" },
+      #       "1" => %{ first_name: "Jane" },
+      #     },
+      #   },
+      # }
+      # assert_equal(expected, obj.serialize_params)
+      needs_refactoring_into_elixir()
     end
 
     test "serialize on an partially changed additional_owners" do
-      obj = Stripe.Util.convert_to_stripe_object({
-        object: "account",
-        legal_entity: %{
-          additional_owners: [
-            Stripe.StripeObject.construct_from(first_name: "Joe"),
-            Stripe.StripeObject.construct_from(first_name: "Jane"),
-          ],
-        },
-      }, %{})
-      obj.legal_entity.additional_owners[1].first_name = "Stripe"
+      # TODO: Migrate Ruby to Elixir
+      # obj = Stripe.Util.convert_to_stripe_object({
+      #   object: "account",
+      #   legal_entity: %{
+      #     additional_owners: [
+      #       Stripe.StripeObject.construct_from(first_name: "Joe"),
+      #       Stripe.StripeObject.construct_from(first_name: "Jane"),
+      #     ],
+      #   },
+      # }, %{})
+      # obj.legal_entity.additional_owners[1].first_name = "Stripe"
 
-      expected = %{
-        legal_entity: %{
-          additional_owners: %{
-            "1" => %{ first_name: "Stripe" },
-          },
-        },
-      }
-      assert_equal(expected, obj.serialize_params)
+      # expected = %{
+      #   legal_entity: %{
+      #     additional_owners: %{
+      #       "1" => %{ first_name: "Stripe" },
+      #     },
+      #   },
+      # }
+      # assert_equal(expected, obj.serialize_params)
+      needs_refactoring_into_elixir()
     end
 
     test "serialize on an unchanged additional_owners" do
-      obj = Stripe.Util.convert_to_stripe_object({
-        object: "account",
-        legal_entity: %{
-          additional_owners: [
-            Stripe.StripeObject.construct_from(first_name: "Joe"),
-            Stripe.StripeObject.construct_from(first_name: "Jane"),
-          ],
-        },
-      }, %{})
+      # TODO: Migrate Ruby to Elixir
+      # obj = Stripe.Util.convert_to_stripe_object({
+      #   object: "account",
+      #   legal_entity: %{
+      #     additional_owners: [
+      #       Stripe.StripeObject.construct_from(first_name: "Joe"),
+      #       Stripe.StripeObject.construct_from(first_name: "Jane"),
+      #     ],
+      #   },
+      # }, %{})
 
-      expected = %{
-        legal_entity: %{
-          additional_owners: %{},
-        },
-      }
-      assert_equal(expected, obj.serialize_params)
+      # expected = %{
+      #   legal_entity: %{
+      #     additional_owners: %{},
+      #   },
+      # }
+      # assert_equal(expected, obj.serialize_params)
+      needs_refactoring_into_elixir()
     end
 
     # Note that the empty string that we send for this one has a special
     # meaning for the server, which interprets it as an array unset.
     test "serialize on an unset additional_owners" do
-      obj = Stripe.Util.convert_to_stripe_object({
-        object: "account",
-        legal_entity: %{
-          additional_owners: [
-            Stripe.StripeObject.construct_from(first_name: "Joe"),
-            Stripe.StripeObject.construct_from(first_name: "Jane"),
-          ],
-        },
-      }, %{})
-      obj.legal_entity.additional_owners = nil
+      # TODO: Migrate Ruby to Elixir
+      # obj = Stripe.Util.convert_to_stripe_object({
+      #   object: "account",
+      #   legal_entity: %{
+      #     additional_owners: [
+      #       Stripe.StripeObject.construct_from(first_name: "Joe"),
+      #       Stripe.StripeObject.construct_from(first_name: "Jane"),
+      #     ],
+      #   },
+      # }, %{})
+      # obj.legal_entity.additional_owners = nil
 
-      expected = %{
-        legal_entity: %{
-          additional_owners: "",
-        },
-      }
-      assert_equal(expected, obj.serialize_params)
+      # expected = %{
+      #   legal_entity: %{
+      #     additional_owners: "",
+      #   },
+      # }
+      # assert_equal(expected, obj.serialize_params)
+      needs_refactoring_into_elixir()
     end
   end
-
 end

@@ -8,6 +8,7 @@
 #
 
 defmodule StripeTest.WebhookTest do
+  import StripeTest.Helpers
   use ExUnit.Case
 
   EVENT_PAYLOAD = <<-PAYLOAD.freeze

@@ -8,6 +8,7 @@
 #
 
 defmodule StripeTest.EphemeralKeyTest do
+  import StripeTest.Helpers
   use ExUnit.Case
 
   describe "#create" do

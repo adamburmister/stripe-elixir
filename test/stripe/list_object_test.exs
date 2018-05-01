@@ -8,6 +8,7 @@
 #
 
 defmodule StripeTest.ListObjectTest do
+  import StripeTest.Helpers
   use ExUnit.Case
 
   test "provide .empty_list" do

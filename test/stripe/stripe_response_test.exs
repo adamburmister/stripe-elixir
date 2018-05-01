@@ -8,6 +8,7 @@
 #
 
 defmodule StripeTest.StripeResponseTest do
+  import StripeTest.Helpers
   use ExUnit.Case
 
   describe ".from_faraday_hash" do

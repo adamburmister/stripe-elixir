@@ -27,6 +27,7 @@ defmodule Stripe.MixProject do
   defp deps do
     [
       {:poison, "~> 3.1"},
+      {:httpoison, "~> 1.0"},
     ]
   end
 end

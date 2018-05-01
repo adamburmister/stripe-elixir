@@ -8,6 +8,7 @@
 #
 
 defmodule StripeTest.SourceTransactionTest do
+  import StripeTest.Helpers
   use ExUnit.Case
 
   setup do

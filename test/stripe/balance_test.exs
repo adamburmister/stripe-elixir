@@ -8,11 +8,13 @@
 #
 
 defmodule StripeTest.BalanceTest do
+  import StripeTest.Helpers
   use ExUnit.Case
 
   test "should be retrievable" do
-    balance = Stripe.Balance.retrieve()
-    assert_requested(:get, "#{Stripe.api_base()}/v1/balance")
-    assert balance.is_a?(Stripe.Balance)
+    # balance = Stripe.Balance.retrieve()
+    # assert_requested(:get, "#{Stripe.api_base()}/v1/balance")
+    # assert balance.is_a?(Stripe.Balance)
+    needs_refactoring_into_elixir()
   end
 end

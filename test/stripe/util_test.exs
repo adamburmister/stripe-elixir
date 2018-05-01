@@ -8,6 +8,7 @@
 #
 
 defmodule StripeTest.UtilTest do
+  import StripeTest.Helpers
   use ExUnit.Case
 
   describe "OPTS_COPYABLE" do

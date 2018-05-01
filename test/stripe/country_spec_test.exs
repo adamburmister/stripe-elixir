@@ -8,18 +8,21 @@
 #
 
 defmodule StripeTest.CountrySpecTest do
+  import StripeTest.Helpers
   use ExUnit.Case
 
   test "should be listable" do
-    c = Stripe.CountrySpec.list()
-    assert_requested(:get, "#{Stripe.api_base()}/v1/country_specs")
-    assert c.data.is_a?(Array)
-    assert c.data[0].is_a?(Stripe.CountrySpec)
+    # c = Stripe.CountrySpec.list()
+    # assert_requested(:get, "#{Stripe.api_base()}/v1/country_specs")
+    # assert c.data.is_a?(Array)
+    # assert c.data[0].is_a?(Stripe.CountrySpec)
+    needs_refactoring_into_elixir()
   end
 
   test "should be retrievable" do
-    s = Stripe.CountrySpec.retrieve("US")
-    assert_requested(:get, "#{Stripe.api_base()}/v1/country_specs/US")
-    assert(s.is_a?(Stripe.CountrySpec))
+    # s = Stripe.CountrySpec.retrieve("US")
+    # assert_requested(:get, "#{Stripe.api_base()}/v1/country_specs/US")
+    # assert(s.is_a?(Stripe.CountrySpec))
+    needs_refactoring_into_elixir()
   end
 end

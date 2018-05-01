@@ -8,6 +8,7 @@
 #
 
 defmodule StripeTest.StripeErrorTest do
+  import StripeTest.Helpers
   use ExUnit.Case
 
   describe "#to_s" do
