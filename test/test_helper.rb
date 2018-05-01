@@ -1,3 +1,5 @@
+# TODO: Migrate to Elixir
+
 require "coveralls"
 Coveralls.wear!("test_frameworks")
 
@@ -40,7 +42,7 @@ end
 module Test
   module Unit
     class TestCase
-      include Stripe::TestData
+      include Stripe.TestData
       include Mocha
 
       setup do

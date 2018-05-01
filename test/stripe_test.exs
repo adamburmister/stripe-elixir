@@ -1,6 +1,5 @@
 defmodule StripeTest do
   use ExUnit.Case
-  doctest Stripe
 
   test "warn that #refresh_from is deprecated" do
     # COPY-PASTA RUBY ----
@@ -9,7 +8,7 @@ defmodule StripeTest do
     # begin
     #   Stripe.uri_encode({})
     #   message = "NOTE: Stripe.uri_encode is deprecated; use " \
-    #             "Stripe::Util#encode_parameters instead"
+    #             "Stripe.Util#encode_parameters instead"
     #   assert_match Regexp.new(message), $stderr.string
     # ensure
     #   $stderr = old_stderr
@@ -67,5 +66,4 @@ defmodule StripeTest do
     # assert_equal Stripe.read_timeout, 80
     assert "ruby test" == "not converted to elixir"
   end
-
 end
