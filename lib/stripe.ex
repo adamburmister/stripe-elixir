@@ -1,0 +1,3 @@
+defmodule Stripe do
+
+end
